@@ -1,0 +1,26 @@
+.principal{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.service-description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background-color: whitesmoke ;
+    gap: 10px;
+    text-align: center;
+}
+.service-description button{
+    background-color: rgb(33, 132, 232);
+    border: none;
+    color: white;
+    padding: 17px;
+    border-radius: 30px;
+}
+.principal img{
+    width: 300px;
+}

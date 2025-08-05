@@ -1,0 +1,15 @@
+{% load static %}
+<div class="my-card">
+    {% if service.imagem %}
+        <img src="{{service.imagem.url}}" class="service-image"alt="Título do Serviço - {{service.titulo}}">
+    {% else %}
+        <img src="{% static 'imgs/indisponivel.png' %}" class="service-image"alt="Título do Serviço">
+    {% endif %}
+    <h1 class="my-card-title">{{service.titulo}}</h1>
+    <p class="my-card-title">{{service.descricao}}</p>
+    <h2 class="my-card-value">R${{service.valor}}</h2>
+    <div class="icons">
+        <i class="bi bi-pen"></i>
+        <i class="bi bi-trash"></i>
+    </div>
+</div>

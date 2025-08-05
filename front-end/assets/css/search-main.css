@@ -1,0 +1,140 @@
+.principal{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    gap: 30px;
+    margin-top: 5px;
+    margin-bottom: 60px;
+}
+.principal p{
+    font-size: 15px;
+}
+.principal span{
+    color: rgb(33, 132, 232);
+}
+.principal input{
+    width: 500px;
+    border-radius: 15px;
+    padding: 8px 70px 8px 15px; 
+}
+.principal button{
+    border: none;
+    background-color: transparent;
+    margin-left: -30px;
+}
+.ps-title{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+.popular-services{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px
+}
+.ps-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding: 10px;
+    
+}
+.ps-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 9px;
+    background-color: white;
+    width: 280px;
+    height: 210px;
+    height: auto;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 5px;
+}
+.ps-card i{
+    font-size: 50px;
+}
+.service-description{
+    display: flex;
+    margin-bottom: 80px;
+    flex-direction: column;
+    color:#ffffff
+    
+}
+.sd-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 250px;
+}
+.sd-title{
+    font-size: 20px;
+    margin-left: 180px;
+    margin-top: 70px;
+}
+.sd-title span{
+    display: flex;
+    font-size: 36px;
+    color: rgb(33, 132, 232);
+}
+.sd-list{
+    justify-content: center;
+    flex-direction: column;
+    font-size: 13px;
+    
+}
+.sd-list i{
+    display: flex;
+    margin-bottom: -27px;
+    margin-left: -20px;
+}
+.sd-list p{
+    color: rgb(154, 154, 154);
+}
+.sd-image{
+    display: flex;
+    margin-top: 30px;
+    font-size: 300px;
+}
+.sd-list-item{
+    width: 500px;
+    margin-bottom: 50px;
+}
+.service-image{
+    width: 150px;
+}
+.seemore-btn{
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 8px;
+    background-color: rgb(33, 132, 232);
+
+}
+.seemore-btn a{
+    text-decoration: none;
+    color: white;
+}
+@media screen and ( max-width:1170px ){
+    .principal p{
+        display: none;
+    }
+    .sd-image{
+        display: none;
+    }
+}

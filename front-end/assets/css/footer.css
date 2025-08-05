@@ -1,0 +1,20 @@
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color:white;
+    gap: 0px;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.footer-ltd{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.footer-social{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- ICONS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- POPPINS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="{% static 'css/utils.css' %}">
+    <title>E-Services</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <nav id="itens">
+                <a href="{% url 'indexPage' %}"><i id="nav_logo" class="bi bi-amd"></i></a>
+            </nav>
+            <nav id="itens2">
+                <ul id="nav_list">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item active"><a href="{% url 'myServicesPage' %}">Meus serviços</a></li>
+                        <li class="nav-item active"><a href="{% url 'cadastroServicePage' %}">Cadastre um serviço</a></li>
+                    {% else %}
+                        <li class="nav-item active"><a href="{% url 'cadastroServicePage' %}">Torne-se um prestador</a></li>
+                    {% endif %}
+                </ul>
+                <ul id="nav_list">
+                    {% if request.user.is_authenticated %}
+                    <div>
+                        <i class="bi bi-person-circle"></i>
+                        <p>{{request.user.username}}</p>
+                    </div>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item"><a class="logout-link" href="{% url 'logout' %}">Sair</a></li>
+                    {% else %}    
+                        <li class="nav-item"><a href="{% url 'loginPage' %}">Entrar</a></li>
+                    {% endif %}
+                    <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>
+                </ul>
+                
+            </nav>
+            
+        </nav>
+    </header>
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+                <span class="msg-box success"><i class="bi bi-check-square"></i></i><p>{{message}}</p></span>
+            {% endfor %}
+        {% endif %}
+        <div class="principal">
+            <h1>Encontre o <span>serviço</span> ideal imediatamente!</h1>
+            <p>Descubra rapidamente os serviços que atendem às suas necessidades com<br> eficiência e praticidade. Estamos aqui para facilitar sua escolha e conectar<br> você às melhores opções disponíveis.</p>
+            <form method="get" action="{% url 'searchPage' %}">{% csrf_token %}
+                <input type="text" name="searchInput" placeholder="O que você esta procurando?">
+                <button><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+        <div class="popular-services">
+            <h1 class="ps-title">Serviços Populares</h1>
+            <div class="ps-cards">
+                <div class="ps-card">
+                    <h1 class="ps-card-title">Tradução</h1>
+                    <i class="bi bi-translate"></i>
+                </div>
+                <div class="ps-card">
+                    <h1 class="ps-card-title">Wordpress</h1>
+                    <i class="bi bi-wordpress"></i>
+                </div>
+                <div class="ps-card">
+                    <h1 class="ps-card-title">Medias Social</h1>
+                    <i class="bi bi-file-earmark-play"></i>
+                </div>
+                <div class="ps-card">
+                    <h1 class="ps-card-title">Locução</h1>
+                    <i class="bi bi-mic"></i>
+                </div>
+                <div class="ps-card">
+                    <h1 class="ps-card-title">Logotipo</h1>
+                    <i class="bi bi-tree"></i>
+                </div>
+                <div class="ps-card">
+                    <h1 class="ps-card-title">Eletrica</h1>
+                    <i class="bi bi-cast"></i>
+                </div>
+                <div class="ps-card">
+                    <h1 class="ps-card-title">Chaveiro</h1>
+                    <i class="bi bi-key-fill"></i>
+                </div>  
+            </div>
+        </div>
+        <div class="service-description">
+            <h1 class="sd-title"><span>Freelancers & Empresas</span> competentes para todas as áreas – a apenas <br>um clique de distância.</h1>
+            <div class="sd-main">
+                <div class="sd-list">
+                    <div class="sd-list-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <h1>Trabalho de qualidade - eficiente e confiável</h1>
+                        <p>Receba entregas pontuais e de alta qualidade, seja um trabalho de curto prazo ou um projeto complexo.</p>
+                    </div>
+                    <div class="sd-list-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <h1>Segurança em cada pedido</h1>
+                        <p>Pagamentos protegidos pela tecnologia SSL. As transações só são liberadas quando a entrega é aprovada.</p>
+                    </div>
+                    <div class="sd-list-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <h1>Local ou global</h1>
+                        <p>Trabalhe com especialistas que falam português ou talentos internacionais, dependendo da suas preferência e requisitos.</p>
+                    </div>
+                </div>
+                <div class="sd-image">
+                    <i class="bi bi-amd"></i>
+                </div>
+            </div>    
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <div class="footer">      
+            <div class="footer-ltd">
+                <i class="bi bi-amd"></i>
+                <p>© NicoTech Ltd. 2025</p>
+            </div>
+            <div class="footer-social">
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-tiktok"></i>
+                <i class="bi bi-linkedin"></i>
+                <i class="bi bi-facebook"></i>
+            </div>
+            
+        </div>
+    </footer>]
+    <script src="{% static 'js/api.js' %}" type="module"></script>
+</body>
+</html>

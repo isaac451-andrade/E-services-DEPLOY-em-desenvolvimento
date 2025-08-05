@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <!-- POPPINS -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/service-main.css">
+    <link rel="stylesheet" href="{% static 'css/utils.css' %}">
+    <title>Prestador</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <nav id="itens">
+                <a href="{% url 'indexPage' %}"><i id="nav_logo" class="bi bi-amd"></i></a>
+                
+            </nav>
+            <nav id="itens2">
+                <ul id="nav_list">
+                    <li class="nav-item active"><a href="{% url 'myServicesPage' %}">Meus Serviços</a></li>
+                </ul>
+                <ul id="nav_list">
+                    <li class="nav-item"><a href="{% url 'indexPage' %}">Voltar</a></li>
+                    {% if request.user.is_authenticated %}
+                    <div>
+                        <i class="bi bi-person-circle"></i>
+                        <p>{{request.user.username}}</p>
+                    </div>
+                    {% endif %}
+                </ul>
+                <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>
+            </nav>
+            
+        </nav>
+    </header>
+    <main>
+        <div class="service-box">
+            <h1 class="service-title">Cadastre seu serviço</h1>
+            <div class="form-service">
+                <!-- o enctype tem que ser multipart/form-data, pois está lidando com dados complexos que seria as imgs -->
+                <form method="post" class="service-form" enctype="multipart/form-data">{% csrf_token %}
+                    <input type="text" name="titulo" placeholder="Nome do Serviço" required>
+                    <input type="text" name="descricao" placeholder="Descrição" required>
+                    <input type="number" name="valor" placeholder="Valor (R$)" required>
+                    <label for="imagem" class="labelImagem">
+                        <input disabled type="file" name="imagem" id="imagem" placeholder="Imagem">
+                        <span class="mensagem-status">Funcionalidade desativada</span>
+                    </label>
+                    <button class="service-btn">Cadastrar Serviço</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'js/api.js' %}" type="module"></script>
+</body>
+</html>

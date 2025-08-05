@@ -1,0 +1,19 @@
+{
+    "testes": [
+{
+    "username":"teste04",
+    "password":"senha",
+    "password2":"senha",
+    "email":"email@gmail.com",
+    "address":"rua deputado do corno",
+    "contact":"83988608019",
+    "company_name":"Empresa"
+},
+    {
+        "usuario": 1,
+        "titulo": "Segundo Titulo Teste",
+        "descricao":"lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+        "valor": 100
+    }
+    ]
+}

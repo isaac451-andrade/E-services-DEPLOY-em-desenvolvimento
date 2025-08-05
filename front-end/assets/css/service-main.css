@@ -1,0 +1,72 @@
+.service-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    flex-direction: column;
+    width: 300px;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.service-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.service-form input{
+    padding: 10px;
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    border: solid 0.5px;
+}
+
+.labelImagem{
+    cursor: not-allowed;
+    pointer-events: none;
+    width: 200px;
+    position: relative;
+}
+
+.mensagem-status{
+    background-color: rgb(255, 255, 26);
+    border-radius: .5rem;
+    padding: 10px 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all .5s;
+    opacity: 0;
+}
+
+.labelImagem:hover .mensagem-status{
+    transition: all .5s;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.service-btn{
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 8px;
+    background-color: rgb(33, 132, 232);
+
+}
+.service-btn:hover{
+    box-shadow: 1px 1px 7px  rgb(33, 132, 232);
+}
+.service-title{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.service-box a{
+    text-decoration: none;
+    display: flex;
+    margin-top: 20px;
+    color: black;
+}

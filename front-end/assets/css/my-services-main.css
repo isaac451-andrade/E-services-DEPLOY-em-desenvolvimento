@@ -1,0 +1,38 @@
+.my-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding: 10px;
+}
+.my-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 10px;
+    text-align: justify;
+    background-color: white;
+    width: 500px;
+    height: 180px;
+    height: auto;
+    border-radius: 10px;
+    gap: 7px;
+    padding: 5px;
+}
+.service-image{
+    width: 110px;
+}
+.icons{
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    margin-right: -350px;
+    
+}
+.icons i{
+    
+    margin-top: -30px;
+ }

@@ -1,0 +1,12 @@
+{% load static %}
+<div class="ps-card">
+    {% if service.imagem %}
+        <img src="{{service.imagem.url}}" class="service-image"alt="Título do Serviço - {{service.titulo}}">
+    {% else %}
+        <img src="{% static 'imgs/indisponivel.png' %}" class="service-image"alt="Título do Serviço">
+    {% endif %}
+    <h1 class="ps-card-title">{{service.titulo}}</h1>
+    <h2 class="ps-card-value">R${{service.valor}}</h2>
+    <button class="seemore-btn"><a href="{% url 'detailPage' service.id %}?searchInput={{ current_query|urlencode }}">Ver Mais</a></button>
+</div>
+<!-- current_query pega o q que mandei para o search e enviar como q para a pagina de detalhes -->

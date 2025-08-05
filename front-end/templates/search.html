@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- ICONS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- POPPINS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/search-main.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <title>E-Services</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <nav id="itens">
+                <a href="{% url 'indexPage' %}"><i id="nav_logo" class="bi bi-amd"></i></a>
+            </nav>
+            <nav id="itens2">
+                <ul id="nav_list">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item active"><a href="{% url 'myServicesPage' %}">Meus serviços</a></li>
+                        <li class="nav-item active"><a href="{% url 'cadastroServicePage' %}">Cadastre um serviço</a></li>
+                    {% else %}
+                        <li class="nav-item active"><a href="{% url 'cadastroServicePage' %}">Torne-se um prestador</a></li>
+                    {% endif %}
+                </ul>
+                <ul id="nav_list">
+                    {% if request.user.is_authenticated %}
+                    <div>
+                        <i class="bi bi-person-circle"></i>
+                        <p>{{request.user.username}}</p>
+                    </div>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item"><a class="logout-link" href="{% url 'logout' %}">Sair</a></li>
+                    {% else %}    
+                        <li class="nav-item"><a href="{% url 'loginPage' %}">Entrar</a></li>
+                    {% endif %}
+                </ul>
+                <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>
+            </nav>
+            
+        </nav>
+    </header>
+    <main>
+        <div class="principal">
+            <h1>Encontre o <span>serviço</span> ideal imediatamente!</h1>
+            <p>Descubra rapidamente os serviços que atendem às suas necessidades com<br> eficiência e praticidade. Estamos aqui para facilitar sua escolha e conectar<br> você às melhores opções disponíveis.</p>
+            <form method="get" action="{% url 'searchPage' %}">{% csrf_token %}
+                <input type="text" placeholder="O que você esta procurando?" name="searchInput">
+                <button><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+        <div class="popular-services">
+            <h1 class="ps-title">Resultados para sua pesquisa:</h1>
+            <div class="ps-cards">
+                {% if services %}
+                    {% for service in services %}
+                        {% include 'partials/cardForSearchPage.html' with item=service %}
+                    {% endfor %}
+                {% else %}
+                    <p style="font-size: 36px;color: white;">Não há serviços no momento!</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <div class="footer">      
+            <div class="footer-ltd">
+                <i class="bi bi-amd"></i>
+                <p>© NicoTech Ltd. 2025</p>
+            </div>
+            <div class="footer-social">
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-tiktok"></i>
+                <i class="bi bi-linkedin"></i>
+                <i class="bi bi-facebook"></i>
+            </div>
+            
+        </div>
+    </footer>
+</body>
+</html>
