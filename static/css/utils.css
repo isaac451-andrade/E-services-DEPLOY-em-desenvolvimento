@@ -1,0 +1,55 @@
+main {
+    position: relative;
+}
+
+.msg-box{
+    padding: 20px;
+    position: absolute;
+    top: -8%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 999;
+    transition: all 2s ease-in-out;
+}
+
+.msg-box i {
+    font-size: 30px;
+}
+
+.msg-box p {
+    text-wrap: nowrap;
+}
+
+.msg-box.error{
+    background-color: #F55353;
+}
+
+.msg-box.success{
+    background-color: rgb(152, 233, 31);
+}
+
+.msg-box.warning {
+    background-color: yellow;
+}
+
+.logout-link{
+    border-bottom: 3px solid #F55353;
+}
+
+/* animations */
+
+@keyframes fadeOut{
+    from {
+        opacity: 1;
+        top: -8%;
+    }
+
+    to{
+        opacity: 0;
+        top: -16%;
+    }
+}

@@ -1,26 +1,27 @@
 {
-  "builds": [
-    {
-      "src": "back-end/apiSetup/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.10.6"
+    "version": 2,
+    "builds": [
+      {
+        "src": "back-end/apiSetup/wsgi.py",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.10.6"
+        }
+      },
+      {
+        "src": "build_files.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "static"
+        }
       }
-    },
-    {
-      "src": "front-end/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "back-end/apiSetup/wsgi.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "front-end/$1"
-    }
-  ]
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "back-end/apiSetup/wsgi.py"
+      }
+    ],
+    "outputDirectory": "static"
 }

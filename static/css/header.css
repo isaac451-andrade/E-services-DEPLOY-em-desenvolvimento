@@ -1,0 +1,98 @@
+header{
+    width: 100%;
+    padding: 28px 8%;
+}
+
+.logout-link{
+    border-bottom: 3px solid rgb(249, 93, 93);
+}
+
+#navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 500px;
+}
+
+#itens{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+#nav_list div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#nav_list div p{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+#nav_list div i{
+    font-size: 20px;
+    color: #fff;
+}
+
+#itens2{
+    display: flex;
+    gap: 50px;
+}
+#nav_logo{
+    font-size: 44px;
+    color: rgb(255, 255, 255);
+}
+#nav_list{
+    display: flex;
+    list-style: none;
+    gap: 48px;
+}
+.nav-item a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.nav-item.active a{
+    color: whitesmoke;
+    border-bottom: 3px solid rgb(33, 132, 232);
+
+}
+
+#mobile_btn{
+    display: none;
+}
+#mobile_menu{
+    display: none;
+}
+@media screen and ( max-width:1170px ){
+    #nav_list, #navbar .btn-default{
+        display: none;
+    }
+    #mobile_btn{
+        display: block;
+        border: none;
+        font-size: 1.5rem;
+        background: transparent;
+        cursor: pointer;
+        color: whitesmoke;
+    }
+    #mobile_menu.active{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #mobile_nav_list{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+    }
+    #mobile_nav_list .nav-item{
+        list-style: none;
+        text-align: center;
+    }
+}
